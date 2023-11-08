@@ -8,7 +8,9 @@
 import UIKit
 
 protocol SideBarViewDelegate: AnyObject {
-  
+  func sideBarViewDidTapMyProfile(_ sideBarView: SideBarView)
+  func sideBarViewDidTapSetting(_ sideBarView: SideBarView)
+  func sideBarViewDidTapLogout(_ sideBarView: SideBarView)
 }
 
 final class SideBarView: UIView {
@@ -47,11 +49,24 @@ final class SideBarView: UIView {
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
-  private lazy var closeButton: UIButton = {
-    let button = UIButton(type: .system)
-    button.tag = 0
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setBackgroundImage(.closeIcon, for: .normal)
+  private lazy var accountInfoView = AccountInfoView()
+  private lazy var myProfileItemView: MenuItemView = MenuItemView(title: "Profile Saya")
+  private lazy var settingItemView: MenuItemView = MenuItemView(title: "Pengaturan")
+  private lazy var logoutButton: RoundedFilledButton = {
+    let button = RoundedFilledButton(defaultBackgroundColor: .primaryRed)
+    button.setTitle("Logout", for: .normal)
+    return button
+  }()
+  private lazy var stackView: UIStackView = {
+    let stackView = UIStackView(arrangedSubviews: [accountInfoView, myProfileItemView, settingItemView])
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.axis = .vertical
+    stackView.spacing = 32
+    stackView.alignment = .fill
+    return stackView
+  }()
+  private lazy var closeButton: ImageButton = {
+    let button = ImageButton(image: .closeIcon)
     button.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
     return button
   }()
@@ -66,6 +81,30 @@ final class SideBarView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+  }
+  
+  func animateShowContentView() {
+    contentViewTrailingConstraint.constant = 0
+    isExpanded = true
+    draggingIsEnabled = true
+    UIView.animate(withDuration: 0.15) {
+      self.layoutIfNeeded()
+    }
+    toggleContentViewHidden()
+  }
+  
+  func animateHideContentView() {
+    contentViewTrailingConstraint.constant = contentViewWidth
+    isExpanded = false
+    draggingIsEnabled = false
+    UIView.animate(withDuration: 0.15) {
+      self.layoutIfNeeded()
+    }
+    toggleContentViewHidden()
+  }
+  
 }
 
 private extension SideBarView {
@@ -78,6 +117,8 @@ private extension SideBarView {
     translatesAutoresizingMaskIntoConstraints = false
     
     addSubview(contentView)
+    contentView.addSubview(stackView)
+    contentView.addSubview(logoutButton)
     addSubview(closeButton)
     NSLayoutConstraint.activate([
       contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -85,17 +126,33 @@ private extension SideBarView {
       contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
       contentViewTrailingConstraint,
       
+      stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: frame.height/6),
+      stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
+      stackView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor, constant: -20),
+      
+      logoutButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 40),
+      logoutButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+      logoutButton.heightAnchor.constraint(equalToConstant: 40),
+      logoutButton.widthAnchor.constraint(equalToConstant: 140),
+      
       closeButton.widthAnchor.constraint(equalToConstant: 30),
       closeButton.heightAnchor.constraint(equalToConstant: 30),
       closeButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
       closeButton.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -12),
     ])
     contentViewTrailingConstraint.constant = contentViewWidth
+    stackView.setCustomSpacing(20, after: myProfileItemView)
+    logoutButton.layoutIfNeeded()
   }
   
   func setupGestures() {
     let dragGesture = UIPanGestureRecognizer(target: self, action: #selector(onContentViewDidDrag(_:)))
     contentView.addGestureRecognizer(dragGesture)
+    let myProfileGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMenuItem(_:)))
+    myProfileItemView.addGestureRecognizer(myProfileGesture)
+    let settingGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMenuItem(_:)))
+    settingItemView.addGestureRecognizer(settingGesture)
+    logoutButton.addTarget(self, action: #selector(didTapLogout(_:)), for: .touchUpInside)
   }
   
   func toggleContentViewHidden() {
@@ -106,22 +163,18 @@ private extension SideBarView {
     }
   }
   
-  func animateShowContentView() {
-    contentViewTrailingConstraint.constant = 0
-    isExpanded = true
-    UIView.animate(withDuration: 0.15) {
-      self.layoutIfNeeded()
+  @objc
+  func didTapMenuItem(_ sender: UITapGestureRecognizer) {
+    switch sender.view {
+    case myProfileItemView: delegate?.sideBarViewDidTapMyProfile(self)
+    case settingItemView: delegate?.sideBarViewDidTapSetting(self)
+    default: break
     }
-    toggleContentViewHidden()
   }
   
-  func animateHideContentView() {
-    contentViewTrailingConstraint.constant = contentViewWidth
-    isExpanded = false
-    UIView.animate(withDuration: 0.15) {
-      self.layoutIfNeeded()
-    }
-    toggleContentViewHidden()
+  @objc
+  func didTapLogout(_ sender: UIButton) {
+    delegate?.sideBarViewDidTapLogout(self)
   }
   
   @objc
@@ -160,6 +213,93 @@ private extension SideBarView {
       position < widthThreshold ? animateShowContentView() : animateHideContentView()
     default: break
     }
+  }
+  
+}
+
+// MARK: - Menu Item View
+private class MenuItemView: UIStackView {
+  
+  lazy var profileImageView: UIImageView = {
+    let imageView = UIImageView(
+      image: UIImage(systemName: "chevron.right")?
+        .withTintColor(.secondaryGrey, renderingMode: .alwaysOriginal)
+    )
+    imageView.clipsToBounds = true
+    return imageView
+  }()
+  lazy var itemLabel: UILabel = Label(font: .gilroy(weight: .semibold, size: 16), color: .secondaryGrey)
+
+  init(title: String? = nil) {
+    super.init(frame: .zero)
+    setTitle(text: title)
+    addArrangedSubview(itemLabel)
+    addArrangedSubview(profileImageView)
+    axis = .horizontal
+    spacing = 50
+    distribution = .equalSpacing
+    alignment = .fill
+    isUserInteractionEnabled = true
+  }
+  
+  required init(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  func setTitle(text: String?) {
+    itemLabel.text = text
+  }
+  
+}
+
+
+// MARK: - Account Info View
+private class AccountInfoView: UIStackView {
+  
+  lazy var profileImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.clipsToBounds = true
+    return imageView
+  }()
+  lazy var nameLabel: UILabel = Label()
+  lazy var membershipLabel: UILabel = Label(text: "Membership BBLK", color: .secondaryGrey)
+  private lazy var nameStackView: UIStackView = {
+    let stackView = UIStackView(arrangedSubviews: [nameLabel,membershipLabel])
+    stackView.axis = .vertical
+    stackView.spacing = 5
+    return stackView
+  }()
+
+  init() {
+    super.init(frame: .zero)
+    addArrangedSubview(profileImageView)
+    addArrangedSubview(nameStackView)
+    axis = .horizontal
+    spacing = 20
+    distribution = .fill
+    alignment = .center
+    profileImageView.backgroundColor = .secondaryGrey
+    NSLayoutConstraint.activate([
+      profileImageView.widthAnchor.constraint(equalToConstant: 50),
+      profileImageView.heightAnchor.constraint(equalToConstant: 50),
+    ])
+    nameLabel.setAttributedText(text: "Angga Praja", defaultAttributes: [
+      .foregroundColor: UIColor.accent,
+      .font: UIFont.gilroy(weight: .regular, size: 18)
+    ], attributedText: "Angga", secondAttributes: [
+      .foregroundColor: UIColor.accent,
+      .font: UIFont.gilroy(weight: .bold, size: 18)
+    ])
+  }
+  
+  required init(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    profileImageView.rounded()
   }
   
 }

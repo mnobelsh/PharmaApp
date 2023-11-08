@@ -35,6 +35,18 @@
 		FFBF8F8A2AFB557C0064D3BD /* LaunchPadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F882AFB557C0064D3BD /* LaunchPadController.swift */; };
 		FFBF8F8B2AFB557C0064D3BD /* LaunchPadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F892AFB557C0064D3BD /* LaunchPadViewModel.swift */; };
 		FFBF8F8E2AFB560F0064D3BD /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F8D2AFB560F0064D3BD /* SideBarView.swift */; };
+		FFBF8F942AFBAD490064D3BD /* Gilroy-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFBF8F902AFBAD490064D3BD /* Gilroy-Light.ttf */; };
+		FFBF8F952AFBAD490064D3BD /* Gilroy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFBF8F912AFBAD490064D3BD /* Gilroy-Regular.ttf */; };
+		FFBF8F962AFBAD490064D3BD /* Gilroy-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFBF8F922AFBAD490064D3BD /* Gilroy-Bold.ttf */; };
+		FFBF8F972AFBAD490064D3BD /* Gilroy-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFBF8F932AFBAD490064D3BD /* Gilroy-SemiBold.ttf */; };
+		FFBF8F992AFBAD8E0064D3BD /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F982AFBAD8E0064D3BD /* UIFont+Extension.swift */; };
+		FFBF8F9B2AFBAEC10064D3BD /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F9A2AFBAEC10064D3BD /* Button.swift */; };
+		FFBF8F9D2AFBB22E0064D3BD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F9C2AFBB22E0064D3BD /* UIView+Extension.swift */; };
+		FFD55A952AFBBC3A008226ED /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A942AFBBC3A008226ED /* UILabel+Extension.swift */; };
+		FFD55A972AFBBED7008226ED /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A962AFBBED7008226ED /* Label.swift */; };
+		FFD55A9A2AFBCCDC008226ED /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A982AFBCCDC008226ED /* AccountViewController.swift */; };
+		FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */; };
+		FFD55A9D2AFBD024008226ED /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +108,18 @@
 		FFBF8F882AFB557C0064D3BD /* LaunchPadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPadController.swift; sourceTree = "<group>"; };
 		FFBF8F892AFB557C0064D3BD /* LaunchPadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPadViewModel.swift; sourceTree = "<group>"; };
 		FFBF8F8D2AFB560F0064D3BD /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
+		FFBF8F902AFBAD490064D3BD /* Gilroy-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.ttf"; sourceTree = "<group>"; };
+		FFBF8F912AFBAD490064D3BD /* Gilroy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.ttf"; sourceTree = "<group>"; };
+		FFBF8F922AFBAD490064D3BD /* Gilroy-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.ttf"; sourceTree = "<group>"; };
+		FFBF8F932AFBAD490064D3BD /* Gilroy-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.ttf"; sourceTree = "<group>"; };
+		FFBF8F982AFBAD8E0064D3BD /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		FFBF8F9A2AFBAEC10064D3BD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		FFBF8F9C2AFBB22E0064D3BD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FFD55A942AFBBC3A008226ED /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		FFD55A962AFBBED7008226ED /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		FFD55A982AFBCCDC008226ED /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +287,7 @@
 		FFBF8F5D2AF951920064D3BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FFBF8F8F2AFBACD20064D3BD /* Fonts */,
 				FFBF8F212AF94C380064D3BD /* PharmaApp.xcdatamodeld */,
 				FFBF8F242AF94C3B0064D3BD /* Assets.xcassets */,
 				FFBF8F262AF94C3B0064D3BD /* LaunchScreen.storyboard */,
@@ -276,6 +301,10 @@
 			children = (
 				FFBF8F702AF95AC00064D3BD /* UIApplication+Extension.swift */,
 				FFBF8F862AFB537B0064D3BD /* UIViewController+Extension.swift */,
+				FFBF8F982AFBAD8E0064D3BD /* UIFont+Extension.swift */,
+				FFBF8F9C2AFBB22E0064D3BD /* UIView+Extension.swift */,
+				FFD55A942AFBBC3A008226ED /* UILabel+Extension.swift */,
+				FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -328,6 +357,8 @@
 		FFBF8F6E2AF958F30064D3BD /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				FFD55A982AFBCCDC008226ED /* AccountViewController.swift */,
+				FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -362,6 +393,7 @@
 		FFBF8F762AF9631B0064D3BD /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				FFBF8F9A2AFBAEC10064D3BD /* Button.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -369,6 +401,7 @@
 		FFBF8F772AF9631F0064D3BD /* Label */ = {
 			isa = PBXGroup;
 			children = (
+				FFD55A962AFBBED7008226ED /* Label.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -379,6 +412,17 @@
 				FFBF8F8D2AFB560F0064D3BD /* SideBarView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FFBF8F8F2AFBACD20064D3BD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FFBF8F922AFBAD490064D3BD /* Gilroy-Bold.ttf */,
+				FFBF8F902AFBAD490064D3BD /* Gilroy-Light.ttf */,
+				FFBF8F912AFBAD490064D3BD /* Gilroy-Regular.ttf */,
+				FFBF8F932AFBAD490064D3BD /* Gilroy-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,8 +534,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBF8F942AFBAD490064D3BD /* Gilroy-Light.ttf in Resources */,
+				FFBF8F972AFBAD490064D3BD /* Gilroy-SemiBold.ttf in Resources */,
 				FFBF8F282AF94C3B0064D3BD /* LaunchScreen.storyboard in Resources */,
+				FFBF8F962AFBAD490064D3BD /* Gilroy-Bold.ttf in Resources */,
 				FFBF8F252AF94C3B0064D3BD /* Assets.xcassets in Resources */,
+				FFBF8F952AFBAD490064D3BD /* Gilroy-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,26 +667,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBF8F992AFBAD8E0064D3BD /* UIFont+Extension.swift in Sources */,
 				FFBF8F872AFB537B0064D3BD /* UIViewController+Extension.swift in Sources */,
+				FFD55A9A2AFBCCDC008226ED /* AccountViewController.swift in Sources */,
 				FFBF8F6B2AF956670064D3BD /* AppFlowCoordinator.swift in Sources */,
 				FFBF8F692AF955C10064D3BD /* AppDIContainer.swift in Sources */,
 				FFBF8F232AF94C380064D3BD /* PharmaApp.xcdatamodeld in Sources */,
 				FFBF8F832AFB525F0064D3BD /* HomeViewModel.swift in Sources */,
 				FFBF8F672AF9556E0064D3BD /* Injector.swift in Sources */,
 				FFBF8F712AF95AC00064D3BD /* UIApplication+Extension.swift in Sources */,
+				FFD55A972AFBBED7008226ED /* Label.swift in Sources */,
 				FFBF8F822AFB525F0064D3BD /* HomeViewController.swift in Sources */,
+				FFD55A9D2AFBD024008226ED /* UINavigationController+Extension.swift in Sources */,
 				FFBF8F752AF95C7B0064D3BD /* NavigationBar.swift in Sources */,
+				FFBF8F9D2AFBB22E0064D3BD /* UIView+Extension.swift in Sources */,
 				FFBF8F192AF94C380064D3BD /* AppDelegate.swift in Sources */,
 				FFBF8F8A2AFB557C0064D3BD /* LaunchPadController.swift in Sources */,
 				FFBF8F632AF953B90064D3BD /* LaunchScreenViewController.swift in Sources */,
 				FFBF8F7B2AFB520E0064D3BD /* LoginViewModel.swift in Sources */,
 				FFBF8F8E2AFB560F0064D3BD /* SideBarView.swift in Sources */,
+				FFD55A952AFBBC3A008226ED /* UILabel+Extension.swift in Sources */,
 				FFBF8F7F2AFB52390064D3BD /* RegisterViewModel.swift in Sources */,
 				FFBF8F8B2AFB557C0064D3BD /* LaunchPadViewModel.swift in Sources */,
 				FFBF8F642AF953B90064D3BD /* LaunchScreenViewModel.swift in Sources */,
+				FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */,
 				FFBF8F7E2AFB52390064D3BD /* RegisterViewController.swift in Sources */,
 				FFBF8F1B2AF94C380064D3BD /* SceneDelegate.swift in Sources */,
 				FFBF8F7A2AFB520E0064D3BD /* LoginViewController.swift in Sources */,
+				FFBF8F9B2AFBAEC10064D3BD /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

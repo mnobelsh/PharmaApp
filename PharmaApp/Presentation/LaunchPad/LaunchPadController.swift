@@ -14,6 +14,8 @@ final class LaunchPadController: UINavigationController {
   private(set) var viewModel: LaunchPadViewModel!
   private var cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
   
+  var topPadding: CGFloat = 0
+  
   // SUBVIEWS
   lazy var appNavigationBar: NavigationBar = NavigationBar()
   lazy var sideBarView: SideBarView = SideBarView()
@@ -33,6 +35,11 @@ final class LaunchPadController: UINavigationController {
     viewModel.viewDidLoad()
     bindViewModel()
   }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    topPadding = appNavigationBar.frame.height
+  }
     
 }
 
@@ -40,6 +47,7 @@ final class LaunchPadController: UINavigationController {
 private extension LaunchPadController {
     
   func setupViewDidLoad() {
+    sideBarView.delegate = self
     sideBarView.isHidden = true
     appNavigationBar.delegate = self
     setNavigationBarHidden(true, animated: false)
@@ -69,6 +77,24 @@ extension LaunchPadController: NavigationBarDelegate {
   
   func navigationBar(_ navigationBar: NavigationBar, didTapMenu menuButton: UIButton) {
     sideBarView.isHidden = false
+  }
+  
+}
+
+extension LaunchPadController: SideBarViewDelegate {
+  
+  func sideBarViewDidTapMyProfile(_ sideBarView: SideBarView) {
+    sideBarView.animateHideContentView()
+    guard viewControllers.last?.isKind(of: AccountViewController.self) == false else { return }
+    self.pushViewController(AccountViewController(viewModel: AccountViewModelImpl(request: .init())), animated: true)
+  }
+  
+  func sideBarViewDidTapSetting(_ sideBarView: SideBarView) {
+    print("SETTING")
+  }
+  
+  func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {
+    print("LOGOUT")
   }
   
 }

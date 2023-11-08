@@ -24,27 +24,21 @@ final class NavigationBar: UIView {
   weak var delegate: NavigationBarDelegate?
   
   // SUBVIEWS
-  private lazy var menuButton: UIButton = {
-    let button = UIButton(type: .system)
+  private lazy var menuButton: ImageButton = {
+    let button = ImageButton(image: .dashIcon)
     button.tag = 0
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setBackgroundImage(.dashIcon, for: .normal)
     button.addTarget(self, action: #selector(didTapNavigationButton(_:)), for: .touchUpInside)
     return button
   }()
-  private lazy var cartButton: UIButton = {
-    let button = UIButton(type: .system)
+  private lazy var cartButton: ImageButton = {
+    let button = ImageButton(image: .cartIcon)
     button.tag = 1
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setBackgroundImage(.cartIcon, for: .normal)
     button.addTarget(self, action: #selector(didTapNavigationButton(_:)), for: .touchUpInside)
     return button
   }()
-  private lazy var notificationButton: UIButton = {
-    let button = UIButton(type: .system)
+  private lazy var notificationButton: ImageButton = {
+    let button = ImageButton(image: .notificationIcon)
     button.tag = 2
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setBackgroundImage(.notificationIcon, for: .normal)
     button.addTarget(self, action: #selector(didTapNavigationButton(_:)), for: .touchUpInside)
     return button
   }()
