@@ -67,7 +67,7 @@
 		CAD584B3A6F798CE7EB3BB40 /* Pods-PharmaApp-PharmaAppUITests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmaApp-PharmaAppUITests.production.xcconfig"; path = "Target Support Files/Pods-PharmaApp-PharmaAppUITests/Pods-PharmaApp-PharmaAppUITests.production.xcconfig"; sourceTree = "<group>"; };
 		D52BF5613CBCC4F554855975 /* Pods_PharmaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PharmaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEFE0C2AB5877ADD43C568E /* Pods-PharmaApp.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmaApp.production.xcconfig"; path = "Target Support Files/Pods-PharmaApp/Pods-PharmaApp.production.xcconfig"; sourceTree = "<group>"; };
-		FFBF8F152AF94C380064D3BD /* PharmaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFBF8F152AF94C380064D3BD /* PharmaApp Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PharmaApp Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBF8F182AF94C380064D3BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFBF8F1A2AF94C380064D3BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FFBF8F222AF94C380064D3BD /* PharmaApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PharmaApp.xcdatamodel; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		FFBF8F162AF94C380064D3BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FFBF8F152AF94C380064D3BD /* PharmaApp.app */,
+				FFBF8F152AF94C380064D3BD /* PharmaApp Dev.app */,
 				FFBF8F2E2AF94C3B0064D3BD /* PharmaAppTests.xctest */,
 				FFBF8F382AF94C3B0064D3BD /* PharmaAppUITests.xctest */,
 			);
@@ -400,7 +400,7 @@
 			);
 			name = PharmaApp;
 			productName = PharmaApp;
-			productReference = FFBF8F152AF94C380064D3BD /* PharmaApp.app */;
+			productReference = FFBF8F152AF94C380064D3BD /* PharmaApp Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FFBF8F2D2AF94C3B0064D3BD /* PharmaAppTests */ = {
@@ -772,7 +772,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnobelsh.PharmaApp.dev;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PharmaApp Dev";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEV";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -907,7 +907,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnobelsh.PharmaApp.stag;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PharmaApp Stag";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG STAG";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1035,7 +1035,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mnobelsh.PharmaApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PharmaApp;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

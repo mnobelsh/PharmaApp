@@ -87,7 +87,7 @@ private extension SideBarView {
       
       closeButton.widthAnchor.constraint(equalToConstant: 30),
       closeButton.heightAnchor.constraint(equalToConstant: 30),
-      closeButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 60),
+      closeButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
       closeButton.trailingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -12),
     ])
     contentViewTrailingConstraint.constant = contentViewWidth

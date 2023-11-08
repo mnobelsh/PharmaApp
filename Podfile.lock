@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (5.8.1)
   - KeychainAccess (4.2.2)
+  - SkeletonView (1.30.4)
   - Swinject (2.8.3)
 
 DEPENDENCIES:
   - Alamofire
   - KeychainAccess
+  - SkeletonView
   - Swinject
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - KeychainAccess
+    - SkeletonView
     - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 11f8784b68f7462a28fc3ab59ba0435b5e005c41
+PODFILE CHECKSUM: 16b5925df4bad1ec1929aa7f743bc5472b48bb47
 
 COCOAPODS: 1.13.0

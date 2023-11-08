@@ -7,9 +7,14 @@ def shared_pods
   pod 'KeychainAccess'
 end
 
+def ui_pods
+  pod 'SkeletonView'
+end
+
 target 'PharmaApp' do
   
   shared_pods
+  ui_pods
 
   target 'PharmaAppTests' do
     inherit! :search_paths
