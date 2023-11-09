@@ -1,28 +1,40 @@
 PODS:
   - Alamofire (5.8.1)
+  - BetterSegmentedControl (2.0.1)
+  - IQKeyboardManagerSwift (6.5.16)
   - KeychainAccess (4.2.2)
+  - Parchment (3.2.0)
   - SkeletonView (1.30.4)
   - Swinject (2.8.3)
 
 DEPENDENCIES:
   - Alamofire
+  - BetterSegmentedControl (~> 2.0)
+  - IQKeyboardManagerSwift
   - KeychainAccess
+  - Parchment (~> 3.2)
   - SkeletonView
   - Swinject
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - BetterSegmentedControl
+    - IQKeyboardManagerSwift
     - KeychainAccess
+    - Parchment
     - SkeletonView
     - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
+  IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  Parchment: a43c440b22c8a60f7e0196b74339446d4d1d18ea
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 16b5925df4bad1ec1929aa7f743bc5472b48bb47
+PODFILE CHECKSUM: 3f2c07bfc3e530ef41ea5dfc9779e66d33eed3f0
 
 COCOAPODS: 1.13.0

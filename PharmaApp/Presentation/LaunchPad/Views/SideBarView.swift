@@ -49,7 +49,7 @@ final class SideBarView: UIView {
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
-  private lazy var accountInfoView = AccountInfoView()
+  private lazy var accountInfoView = UserInfoView()
   private lazy var myProfileItemView: MenuItemView = MenuItemView(title: "Profile Saya")
   private lazy var settingItemView: MenuItemView = MenuItemView(title: "Pengaturan")
   private lazy var logoutButton: RoundedFilledButton = {
@@ -252,54 +252,3 @@ private class MenuItemView: UIStackView {
   
 }
 
-
-// MARK: - Account Info View
-private class AccountInfoView: UIStackView {
-  
-  lazy var profileImageView: UIImageView = {
-    let imageView = UIImageView()
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.clipsToBounds = true
-    return imageView
-  }()
-  lazy var nameLabel: UILabel = Label()
-  lazy var membershipLabel: UILabel = Label(text: "Membership BBLK", color: .secondaryGrey)
-  private lazy var nameStackView: UIStackView = {
-    let stackView = UIStackView(arrangedSubviews: [nameLabel,membershipLabel])
-    stackView.axis = .vertical
-    stackView.spacing = 5
-    return stackView
-  }()
-
-  init() {
-    super.init(frame: .zero)
-    addArrangedSubview(profileImageView)
-    addArrangedSubview(nameStackView)
-    axis = .horizontal
-    spacing = 20
-    distribution = .fill
-    alignment = .center
-    profileImageView.backgroundColor = .secondaryGrey
-    NSLayoutConstraint.activate([
-      profileImageView.widthAnchor.constraint(equalToConstant: 50),
-      profileImageView.heightAnchor.constraint(equalToConstant: 50),
-    ])
-    nameLabel.setAttributedText(text: "Angga Praja", defaultAttributes: [
-      .foregroundColor: UIColor.accent,
-      .font: UIFont.gilroy(weight: .regular, size: 18)
-    ], attributedText: "Angga", secondAttributes: [
-      .foregroundColor: UIColor.accent,
-      .font: UIFont.gilroy(weight: .bold, size: 18)
-    ])
-  }
-  
-  required init(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    profileImageView.rounded()
-  }
-  
-}
