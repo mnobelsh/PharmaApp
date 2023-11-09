@@ -11,10 +11,27 @@ class TextFieldView: UIStackView {
   
   enum TextFieldType {
     case secure
+    case number
+    case email
     case `default`
   }
   
+  var isValid: Bool = true {
+    didSet { toggleAlert() }
+  }
+  var isRequired: Bool = false
+  var alertText: String? = nil {
+    didSet { alertLabel.text = alertText }
+  }
+  
   private lazy var titleLabel: Label = Label(font: .gilroy(weight: .semibold, size: 16), color: .accent)
+  private lazy var titleStackView: UIStackView = {
+    let stackView = UIStackView(arrangedSubviews: [titleLabel])
+    stackView.axis = .horizontal
+    stackView.alignment = .center
+    stackView.distribution = .equalSpacing
+    return stackView
+  }()
   lazy var textField: UITextField = {
     let textField = UITextField()
     textField.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +62,8 @@ class TextFieldView: UIStackView {
     type: TextFieldType = .default,
     title: String? = nil,
     placeholder: String? = nil,
-    rightButtonImage: UIImage? = nil
+    rightButtonImage: UIImage? = nil,
+    alertText: String? = nil
   ) {
     super.init(frame: .zero)
     translatesAutoresizingMaskIntoConstraints = false
@@ -53,23 +71,30 @@ class TextFieldView: UIStackView {
     spacing = 16
     distribution = .fill
     alignment = .fill
-    addSubview(titleLabel)
     configureTextFieldContainerView()
     
-    addArrangedSubview(titleLabel)
+    addArrangedSubview(titleStackView)
     addArrangedSubview(textFieldContainerView)
     addArrangedSubview(alertLabel)
     
     setPlaceholder(text: placeholder)
     setTitle(title: title)
-    setAlert(text: nil)
-    setRightButton(image: rightButtonImage)
+    setRightTextFieldButton(image: rightButtonImage)
     setCustomSpacing(8, after: textFieldContainerView)
     
-    if type == .secure {
-      setRightButton(image: rightButtonImage ?? .eyeIcon)
+    switch type {
+    case .secure:
+      setRightTextFieldButton(image: rightButtonImage ?? .eyeIcon)
       rightButton.addTarget(self, action: #selector(onRightButtonDidTap(_:)), for: .touchUpInside)
+    case .number:
+      textField.keyboardType = .numberPad
+    case .email:
+      textField.keyboardType = .emailAddress
+    default: break
     }
+    
+    alertLabel.text = alertText
+    toggleAlert()
   }
   
   required init(coder: NSCoder) {
@@ -96,6 +121,13 @@ class TextFieldView: UIStackView {
     ])
   }
   
+  private func toggleAlert() {
+    UIView.animate(withDuration: 0.2) {
+      self.alertLabel.isHidden = self.isValid
+      self.layoutIfNeeded()
+    }
+  }
+  
   func setTitle(title: String?) {
     titleLabel.text = title
     titleLabel.isHidden = title == nil
@@ -112,17 +144,18 @@ class TextFieldView: UIStackView {
     ])
   }
   
-  func setAlert(text: String?) {
-    self.alertLabel.text = text
-    UIView.animate(withDuration: 0.2) {
-      self.alertLabel.isHidden = text == nil
-      self.layoutIfNeeded()
-    }
-  }
-  
-  func setRightButton(image: UIImage?) {
+  func setRightTextFieldButton(image: UIImage?) {
     self.rightButton.setBackgroundImage(image, for: .normal)
     self.rightButton.isHidden = image == nil
+  }
+  
+  func setRightTitleButton(button: UIButton?) {
+    titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+    if let subView = button {
+      titleStackView.addArrangedSubview(subView)
+    } else {
+      titleStackView.arrangedSubviews.first(where: { $0.isEqual(button) })?.removeFromSuperview()
+    }
   }
   
   @objc

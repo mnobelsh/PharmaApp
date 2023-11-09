@@ -20,7 +20,7 @@ extension UIView {
     }
   }
   
-  func dropShadow(offset: CGSize = .zero, radius: CGFloat = 1, opacity: Float = 0.25) {
+  func dropShadow(offset: CGSize = .zero, radius: CGFloat = 4, opacity: Float = 0.15) {
     self.layer.masksToBounds = false
     self.layer.shadowColor = UIColor.black.cgColor
     self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.layer.cornerRadius).cgPath

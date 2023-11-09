@@ -40,6 +40,7 @@ final class RoundedFilledButton: Button {
     self.cornerRadius = radius
     setTitleColor(.white, for: .normal)
     backgroundColor = defaultBackgroundColor
+    self.rounded(radius: radius)
   }
   
   required init?(coder: NSCoder) {

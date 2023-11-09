@@ -65,6 +65,11 @@ final class AccountViewController: PagingViewController {
     viewModel.viewDidLoad()
     bindViewModel()
   }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    segmentedControl.dropShadow()
+  }
     
 }
 
