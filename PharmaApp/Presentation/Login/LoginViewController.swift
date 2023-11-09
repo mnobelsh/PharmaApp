@@ -75,13 +75,11 @@ private extension LoginViewController {
 extension LoginViewController: WelcomeContainerViewDelegate {
   
   func welcomeContainerView(_ containerView: WelcomeContainerView, didTapActionButton button: RoundedFilledButton) {
-
+    AppFlowCoordinator.shared.setLaunchPadFlow()
   }
 
   func welcomeContainerView(_ containerView: WelcomeContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: WelcomeContainerView.PageType) {
     navigateToRegister()
   }
-  
-  
 
 }

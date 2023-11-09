@@ -101,7 +101,7 @@ extension LaunchPadController: SideBarViewDelegate {
   }
   
   func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {
-    print("LOGOUT")
+    AppFlowCoordinator.shared.setAuthenticationFlow()
   }
   
 }

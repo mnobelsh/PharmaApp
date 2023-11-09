@@ -29,8 +29,16 @@ final class AppFlowCoordinator {
   func launchApp(window: UIWindow?) {
     self.window = window
     window?.makeKeyAndVisible()
+    setAuthenticationFlow()
+  }
+  
+  func setAuthenticationFlow() {
     mainNavigationController.setViewControllers([LoginViewController(viewModel: LoginViewModelImpl(request: .init()))], animated: true)
     window?.rootViewController = mainNavigationController
+  }
+  
+  func setLaunchPadFlow() {
+    window?.rootViewController = LaunchPadController(viewModel: LaunchPadViewModelImpl(request: .init()))
   }
   
 }
