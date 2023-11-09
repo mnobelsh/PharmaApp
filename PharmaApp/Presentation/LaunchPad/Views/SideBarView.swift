@@ -52,11 +52,7 @@ final class SideBarView: UIView {
   private lazy var accountInfoView = UserInfoView()
   private lazy var myProfileItemView: MenuItemView = MenuItemView(title: "Profile Saya")
   private lazy var settingItemView: MenuItemView = MenuItemView(title: "Pengaturan")
-  private lazy var logoutButton: RoundedFilledButton = {
-    let button = RoundedFilledButton(defaultBackgroundColor: .primaryRed)
-    button.setTitle("Logout", for: .normal)
-    return button
-  }()
+  private lazy var logoutButton: RoundedFilledButton = RoundedFilledButton(title: "Logout", radius: 0, defaultBackgroundColor: .primaryRed)
   private lazy var stackView: UIStackView = {
     let stackView = UIStackView(arrangedSubviews: [accountInfoView, myProfileItemView, settingItemView])
     stackView.translatesAutoresizingMaskIntoConstraints = false

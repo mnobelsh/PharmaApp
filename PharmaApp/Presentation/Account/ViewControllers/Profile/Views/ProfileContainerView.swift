@@ -12,7 +12,7 @@ class ProfileContainerView: UIView {
   lazy var inputFormView: InputFormView = InputFormView(items: [.firstName,.lastName,.email,.phoneNumber,.id])
   private lazy var userInfoCardView: UserInfoCardView = UserInfoCardView()
   private lazy var additionalInfoView: AdditionalInfoView = AdditionalInfoView()
-  private lazy var saveButton: RoundedFilledButton = RoundedFilledButton(radius: 8)
+  private lazy var saveButton: RoundedFilledButton = RoundedFilledButton(title: "Simpan Profile")
 
   init() {
     super.init(frame: .zero)
@@ -24,7 +24,6 @@ class ProfileContainerView: UIView {
     addSubview(additionalInfoView)
     addSubview(saveButton)
     
-    saveButton.setTitle("Simpan Profile", for: .normal)
     NSLayoutConstraint.activate([
       userInfoCardView.topAnchor.constraint(equalTo: topAnchor),
       userInfoCardView.leadingAnchor.constraint(equalTo: leadingAnchor),

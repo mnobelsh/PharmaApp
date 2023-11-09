@@ -14,6 +14,17 @@ final class LoginViewController: UIViewController {
   private(set) var viewModel: LoginViewModel!
   private var cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
   
+  // SUBVIEWS
+  private lazy var forgetPasswordButton: UIButton = {
+    let button = UIButton(type: .system)
+    button.setTitleColor(.accent, for: .normal)
+    button.titleLabel?.font = .gilroy(weight: .regular, size: 14)
+    button.setTitle("Lupa Password anda ?", for: .normal)
+    return button
+  }()
+  private lazy var inputFormView: InputFormView = InputFormView(items: [.email,.password])
+  private lazy var welcomeContainerView: AuthenticationContainerView = AuthenticationContainerView(pageType: .login)
+  
   init(viewModel: LoginViewModel) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
@@ -36,9 +47,39 @@ final class LoginViewController: UIViewController {
 private extension LoginViewController {
     
   func setupViewDidLoad() {
+    view.backgroundColor = .white
+    
+    welcomeContainerView.addToView(self.view)
+    NSLayoutConstraint.activate([
+      welcomeContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+      welcomeContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      welcomeContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      welcomeContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+    ])
+    welcomeContainerView.setInputFormView(inputFormView)
+    inputFormView.textFieldViews.last?.setRightTitleButton(button: forgetPasswordButton)
+    welcomeContainerView.containerDelegate = self
   }
   
   func bindViewModel() {
   }
+  
+  func navigateToRegister() {
+    let registerVM: RegisterViewModel = RegisterViewModelImpl(request: .init())
+    let registerVC: RegisterViewController = RegisterViewController(viewModel: registerVM)
+    navigationController?.pushViewController(registerVC, animated: true)
+  }
     
+}
+
+extension LoginViewController: AuthenticationContainerViewDelegate {
+  
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton) {
+    AppFlowCoordinator.shared.setLaunchPadFlow()
+  }
+
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType) {
+    navigateToRegister()
+  }
+
 }

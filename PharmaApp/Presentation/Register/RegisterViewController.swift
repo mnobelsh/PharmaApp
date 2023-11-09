@@ -14,6 +14,10 @@ final class RegisterViewController: UIViewController {
   private(set) var viewModel: RegisterViewModel!
   private var cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
   
+  // SUBVIEWS
+  private lazy var inputFormView: InputFormView = InputFormView(items: [.firstName,.lastName,.id,.email,.phoneNumber,.password,.confirmPassword])
+  private lazy var welcomeContainerView: AuthenticationContainerView = AuthenticationContainerView(pageType: .register)
+  
   init(viewModel: RegisterViewModel) {
     self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
@@ -36,9 +40,32 @@ final class RegisterViewController: UIViewController {
 private extension RegisterViewController {
     
   func setupViewDidLoad() {
+    view.backgroundColor = .white
+    
+    welcomeContainerView.addToView(self.view)
+    NSLayoutConstraint.activate([
+      welcomeContainerView.topAnchor.constraint(equalTo: view.topAnchor),
+      welcomeContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      welcomeContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      welcomeContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+    ])
+    welcomeContainerView.setInputFormView(inputFormView)
+    welcomeContainerView.containerDelegate = self
   }
   
   func bindViewModel() {
   }
     
+}
+
+extension RegisterViewController: AuthenticationContainerViewDelegate {
+  
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton) {
+
+  }
+
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType) {
+    self.navigationController?.popViewController(animated: true)
+  }
+
 }
