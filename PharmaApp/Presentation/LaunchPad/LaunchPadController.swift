@@ -71,9 +71,9 @@ private extension LaunchPadController {
   func bindViewModel() {
   }
     
-  func navigateToAccountViewController() {
+  func navigateToAccountViewController(selectedIndex: Int) {
     guard viewControllers.last?.isKind(of: AccountViewController.self) == false else { return }
-    self.pushViewController(AccountViewController(viewModel: AccountViewModelImpl(request: .init())), animated: true)
+    self.pushViewController(AccountViewController(selectedIndex: selectedIndex, viewModel: AccountViewModelImpl(request: .init())), animated: true)
   }
   
 }
@@ -90,18 +90,14 @@ extension LaunchPadController: SideBarViewDelegate {
   
   func sideBarViewDidTapMyProfile(_ sideBarView: SideBarView) {
     sideBarView.animateHideContentView()
-    navigateToAccountViewController()
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-      NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 0])
-    }
+    navigateToAccountViewController(selectedIndex: 0)
+    NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 0])
   }
   
   func sideBarViewDidTapSetting(_ sideBarView: SideBarView) {
     sideBarView.animateHideContentView()
-    navigateToAccountViewController()
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-      NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 1])
-    }
+    navigateToAccountViewController(selectedIndex: 1)
+    NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 1])
   }
   
   func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {

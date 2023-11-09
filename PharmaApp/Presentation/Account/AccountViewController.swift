@@ -43,7 +43,7 @@ final class AccountViewController: PagingViewController {
     return segmentedControl
   }()
   
-  init(viewModel: AccountViewModel) {
+  init(selectedIndex: Int = 0, viewModel: AccountViewModel) {
     self.viewModel = viewModel
     self.profileViewController = ProfileViewController(viewModel: viewModel)
     self.settingViewController = SettingViewController(viewModel: viewModel)
@@ -51,6 +51,8 @@ final class AccountViewController: PagingViewController {
     super.init()
     self.dataSource = self
     self.delegate = self
+    self.segmentedControl.setIndex(selectedIndex)
+    self.select(index: selectedIndex, animated: false)
   }
   
   required init?(coder: NSCoder) {
