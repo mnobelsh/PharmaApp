@@ -4,6 +4,9 @@ PODS:
   - IQKeyboardManagerSwift (6.5.16)
   - KeychainAccess (4.2.2)
   - Parchment (3.2.0)
+  - SDWebImage (5.18.3):
+    - SDWebImage/Core (= 5.18.3)
+  - SDWebImage/Core (5.18.3)
   - SkeletonView (1.30.4)
   - Swinject (2.8.3)
 
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KeychainAccess
   - Parchment (~> 3.2)
+  - SDWebImage (~> 5.0)
   - SkeletonView
   - Swinject
 
@@ -23,6 +27,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - KeychainAccess
     - Parchment
+    - SDWebImage
     - SkeletonView
     - Swinject
 
@@ -32,9 +37,10 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 12d89768845bb77b55cc092ecc2b1f9370f06b76
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Parchment: a43c440b22c8a60f7e0196b74339446d4d1d18ea
+  SDWebImage: 96e0c18ef14010b7485210e92fac888587ebb958
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
   Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
 
-PODFILE CHECKSUM: 3f2c07bfc3e530ef41ea5dfc9779e66d33eed3f0
+PODFILE CHECKSUM: 12aa3d5ff2e86cfb49cb95c1f89e6bdff04c732d
 
 COCOAPODS: 1.13.0
