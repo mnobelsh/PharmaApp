@@ -16,7 +16,7 @@ final class RegisterViewController: UIViewController {
   
   // SUBVIEWS
   private lazy var inputFormView: InputFormView = InputFormView(items: [.firstName,.lastName,.id,.email,.phoneNumber,.password,.confirmPassword])
-  private lazy var welcomeContainerView: WelcomeContainerView = WelcomeContainerView(pageType: .register)
+  private lazy var welcomeContainerView: AuthenticationContainerView = AuthenticationContainerView(pageType: .register)
   
   init(viewModel: RegisterViewModel) {
     self.viewModel = viewModel
@@ -58,13 +58,13 @@ private extension RegisterViewController {
     
 }
 
-extension RegisterViewController: WelcomeContainerViewDelegate {
+extension RegisterViewController: AuthenticationContainerViewDelegate {
   
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapActionButton button: RoundedFilledButton) {
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton) {
 
   }
 
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: WelcomeContainerView.PageType) {
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType) {
     self.navigationController?.popViewController(animated: true)
   }
 

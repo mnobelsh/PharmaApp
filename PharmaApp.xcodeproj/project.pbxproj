@@ -47,7 +47,7 @@
 		FFD55A9A2AFBCCDC008226ED /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A982AFBCCDC008226ED /* AccountViewController.swift */; };
 		FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */; };
 		FFD55A9D2AFBD024008226ED /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */; };
-		FFD8C3F62AFD42EB004B98DD /* WelcomeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8C3F52AFD42EB004B98DD /* WelcomeContainerView.swift */; };
+		FFD8C3F62AFD42EB004B98DD /* AuthenticationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD8C3F52AFD42EB004B98DD /* AuthenticationContainerView.swift */; };
 		FFE51A6D2AFC998F004132A5 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A6C2AFC998F004132A5 /* TextFieldView.swift */; };
 		FFE51A722AFCA618004132A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A712AFCA618004132A5 /* ProfileViewController.swift */; };
 		FFE51A742AFCA7D4004132A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A732AFCA7D4004132A5 /* SettingViewController.swift */; };
@@ -130,7 +130,7 @@
 		FFD55A982AFBCCDC008226ED /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-		FFD8C3F52AFD42EB004B98DD /* WelcomeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContainerView.swift; sourceTree = "<group>"; };
+		FFD8C3F52AFD42EB004B98DD /* AuthenticationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationContainerView.swift; sourceTree = "<group>"; };
 		FFE51A6C2AFC998F004132A5 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		FFE51A712AFCA618004132A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FFE51A732AFCA7D4004132A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -355,7 +355,7 @@
 				FFBF8F772AF9631F0064D3BD /* Label */,
 				FFBF8F762AF9631B0064D3BD /* Button */,
 				FFBF8F732AF95C6B0064D3BD /* Navigation */,
-				FFD8C3F52AFD42EB004B98DD /* WelcomeContainerView.swift */,
+				FFD8C3F52AFD42EB004B98DD /* AuthenticationContainerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -762,7 +762,7 @@
 				FFE51A7B2AFCD851004132A5 /* ProfileContainerView.swift in Sources */,
 				FFD55A952AFBBC3A008226ED /* UILabel+Extension.swift in Sources */,
 				FFBF8F7F2AFB52390064D3BD /* RegisterViewModel.swift in Sources */,
-				FFD8C3F62AFD42EB004B98DD /* WelcomeContainerView.swift in Sources */,
+				FFD8C3F62AFD42EB004B98DD /* AuthenticationContainerView.swift in Sources */,
 				FFBF8F8B2AFB557C0064D3BD /* LaunchPadViewModel.swift in Sources */,
 				FFE51A6D2AFC998F004132A5 /* TextFieldView.swift in Sources */,
 				FFE51A7F2AFCDBA5004132A5 /* UserInfoCardView.swift in Sources */,

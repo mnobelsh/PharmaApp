@@ -1,5 +1,5 @@
 //
-//  WelcomeContainerView.swift
+//  AuthenticationContainerView.swift
 //  PharmaApp
 //
 //  Created by Muhammad Nobel Shidqi on 09/11/23.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol WelcomeContainerViewDelegate: AnyObject {
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapActionButton button: RoundedFilledButton)
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: WelcomeContainerView.PageType)
+protocol AuthenticationContainerViewDelegate: AnyObject {
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton)
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType)
 }
 
-final class WelcomeContainerView: UIScrollView {
+final class AuthenticationContainerView: UIScrollView {
   
   enum PageType {
     case login, register
@@ -25,7 +25,7 @@ final class WelcomeContainerView: UIScrollView {
     }
   }
   
-  weak var containerDelegate: WelcomeContainerViewDelegate?
+  weak var containerDelegate: AuthenticationContainerViewDelegate?
   
   private lazy var headerView: HeaderView = HeaderView()
   private var footerView: FooterView
@@ -130,17 +130,17 @@ final class WelcomeContainerView: UIScrollView {
     case .login:
       let range = (text as NSString).range(of: "Daftar Sekarang")
       guard sender.didTapAttributedTextInLabel(label: footerView.redirectionLabel, inRange: range) else { return }
-      containerDelegate?.welcomeContainerView(self, didTapRedirectionLabel: footerView.redirectionLabel, sender: sender, willNavigateTo: .register)
+      containerDelegate?.authContainerView(self, didTapRedirectionLabel: footerView.redirectionLabel, sender: sender, willNavigateTo: .register)
     case .register:
       let range = (text as NSString).range(of: "Login Sekarang")
       guard sender.didTapAttributedTextInLabel(label: footerView.redirectionLabel, inRange: range) else { return }
-      containerDelegate?.welcomeContainerView(self, didTapRedirectionLabel: footerView.redirectionLabel, sender: sender, willNavigateTo: .login)
+      containerDelegate?.authContainerView(self, didTapRedirectionLabel: footerView.redirectionLabel, sender: sender, willNavigateTo: .login)
     }
   }
   
   @objc
   private func onActionButtonlDidTap(_ sender: RoundedFilledButton) {
-    containerDelegate?.welcomeContainerView(self, didTapActionButton: sender)
+    containerDelegate?.authContainerView(self, didTapActionButton: sender)
 
   }
   
@@ -208,7 +208,7 @@ private final class FooterView: UIView {
   lazy var redirectionLabel: Label = Label()
   lazy var copyrightLabel: Label = Label(text: "© SILK. all right reserved.", font: .gilroy(weight: .semibold, size: 12), color: .secondaryGrey)
   
-  init(pageType: WelcomeContainerView.PageType) {
+  init(pageType: AuthenticationContainerView.PageType) {
     super.init(frame: .zero)
     actionButton.setTitle(pageType.title, for: .normal)
     addSubview(actionButton)

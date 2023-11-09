@@ -23,7 +23,7 @@ final class LoginViewController: UIViewController {
     return button
   }()
   private lazy var inputFormView: InputFormView = InputFormView(items: [.email,.password])
-  private lazy var welcomeContainerView: WelcomeContainerView = WelcomeContainerView(pageType: .login)
+  private lazy var welcomeContainerView: AuthenticationContainerView = AuthenticationContainerView(pageType: .login)
   
   init(viewModel: LoginViewModel) {
     self.viewModel = viewModel
@@ -72,13 +72,13 @@ private extension LoginViewController {
     
 }
 
-extension LoginViewController: WelcomeContainerViewDelegate {
+extension LoginViewController: AuthenticationContainerViewDelegate {
   
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapActionButton button: RoundedFilledButton) {
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton) {
     AppFlowCoordinator.shared.setLaunchPadFlow()
   }
 
-  func welcomeContainerView(_ containerView: WelcomeContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: WelcomeContainerView.PageType) {
+  func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType) {
     navigateToRegister()
   }
 
