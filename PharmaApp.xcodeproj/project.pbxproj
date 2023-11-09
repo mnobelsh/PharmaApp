@@ -47,6 +47,10 @@
 		FFD55A9A2AFBCCDC008226ED /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A982AFBCCDC008226ED /* AccountViewController.swift */; };
 		FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */; };
 		FFD55A9D2AFBD024008226ED /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */; };
+		FFE51A6D2AFC998F004132A5 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A6C2AFC998F004132A5 /* TextFieldView.swift */; };
+		FFE51A722AFCA618004132A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A712AFCA618004132A5 /* ProfileViewController.swift */; };
+		FFE51A742AFCA7D4004132A5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A732AFCA7D4004132A5 /* SettingViewController.swift */; };
+		FFE51A762AFCB075004132A5 /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE51A752AFCB075004132A5 /* NSNotification+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +124,10 @@
 		FFD55A982AFBCCDC008226ED /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		FFE51A6C2AFC998F004132A5 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		FFE51A712AFCA618004132A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FFE51A732AFCA7D4004132A5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FFE51A752AFCB075004132A5 /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +313,7 @@
 				FFBF8F9C2AFBB22E0064D3BD /* UIView+Extension.swift */,
 				FFD55A942AFBBC3A008226ED /* UILabel+Extension.swift */,
 				FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */,
+				FFE51A752AFCB075004132A5 /* NSNotification+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -329,6 +338,7 @@
 		FFBF8F652AF954E70064D3BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FFE51A6B2AFC997E004132A5 /* TextField */,
 				FFBF8F772AF9631F0064D3BD /* Label */,
 				FFBF8F762AF9631B0064D3BD /* Button */,
 				FFBF8F732AF95C6B0064D3BD /* Navigation */,
@@ -357,6 +367,7 @@
 		FFBF8F6E2AF958F30064D3BD /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				FFE51A702AFCA539004132A5 /* ViewControllers */,
 				FFD55A982AFBCCDC008226ED /* AccountViewController.swift */,
 				FFD55A992AFBCCDC008226ED /* AccountViewModel.swift */,
 			);
@@ -423,6 +434,23 @@
 				FFBF8F932AFBAD490064D3BD /* Gilroy-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FFE51A6B2AFC997E004132A5 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				FFE51A6C2AFC998F004132A5 /* TextFieldView.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		FFE51A702AFCA539004132A5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FFE51A712AFCA618004132A5 /* ProfileViewController.swift */,
+				FFE51A732AFCA7D4004132A5 /* SettingViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,9 +704,11 @@
 				FFBF8F832AFB525F0064D3BD /* HomeViewModel.swift in Sources */,
 				FFBF8F672AF9556E0064D3BD /* Injector.swift in Sources */,
 				FFBF8F712AF95AC00064D3BD /* UIApplication+Extension.swift in Sources */,
+				FFE51A762AFCB075004132A5 /* NSNotification+Extension.swift in Sources */,
 				FFD55A972AFBBED7008226ED /* Label.swift in Sources */,
 				FFBF8F822AFB525F0064D3BD /* HomeViewController.swift in Sources */,
 				FFD55A9D2AFBD024008226ED /* UINavigationController+Extension.swift in Sources */,
+				FFE51A722AFCA618004132A5 /* ProfileViewController.swift in Sources */,
 				FFBF8F752AF95C7B0064D3BD /* NavigationBar.swift in Sources */,
 				FFBF8F9D2AFBB22E0064D3BD /* UIView+Extension.swift in Sources */,
 				FFBF8F192AF94C380064D3BD /* AppDelegate.swift in Sources */,
@@ -689,8 +719,10 @@
 				FFD55A952AFBBC3A008226ED /* UILabel+Extension.swift in Sources */,
 				FFBF8F7F2AFB52390064D3BD /* RegisterViewModel.swift in Sources */,
 				FFBF8F8B2AFB557C0064D3BD /* LaunchPadViewModel.swift in Sources */,
+				FFE51A6D2AFC998F004132A5 /* TextFieldView.swift in Sources */,
 				FFBF8F642AF953B90064D3BD /* LaunchScreenViewModel.swift in Sources */,
 				FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */,
+				FFE51A742AFCA7D4004132A5 /* SettingViewController.swift in Sources */,
 				FFBF8F7E2AFB52390064D3BD /* RegisterViewController.swift in Sources */,
 				FFBF8F1B2AF94C380064D3BD /* SceneDelegate.swift in Sources */,
 				FFBF8F7A2AFB520E0064D3BD /* LoginViewController.swift in Sources */,

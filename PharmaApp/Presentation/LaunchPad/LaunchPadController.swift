@@ -71,6 +71,11 @@ private extension LaunchPadController {
   func bindViewModel() {
   }
     
+  func navigateToAccountViewController() {
+    guard viewControllers.last?.isKind(of: AccountViewController.self) == false else { return }
+    self.pushViewController(AccountViewController(viewModel: AccountViewModelImpl(request: .init())), animated: true)
+  }
+  
 }
 
 extension LaunchPadController: NavigationBarDelegate {
@@ -85,12 +90,18 @@ extension LaunchPadController: SideBarViewDelegate {
   
   func sideBarViewDidTapMyProfile(_ sideBarView: SideBarView) {
     sideBarView.animateHideContentView()
-    guard viewControllers.last?.isKind(of: AccountViewController.self) == false else { return }
-    self.pushViewController(AccountViewController(viewModel: AccountViewModelImpl(request: .init())), animated: true)
+    navigateToAccountViewController()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+      NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 0])
+    }
   }
   
   func sideBarViewDidTapSetting(_ sideBarView: SideBarView) {
-    print("SETTING")
+    sideBarView.animateHideContentView()
+    navigateToAccountViewController()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+      NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 1])
+    }
   }
   
   func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {
