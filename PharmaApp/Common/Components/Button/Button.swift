@@ -34,13 +34,14 @@ final class RoundedFilledButton: Button {
   var defaultBackgroundColor: UIColor?
   private var cornerRadius: CGFloat = 0
   
-  init(radius: CGFloat = 0, defaultBackgroundColor: UIColor = .accent) {
+  init(title: String?, radius: CGFloat = 8, defaultBackgroundColor: UIColor = .accent) {
     self.defaultBackgroundColor = defaultBackgroundColor
     super.init()
     self.cornerRadius = radius
+    self.setTitle(title, for: .normal)
     setTitleColor(.white, for: .normal)
     backgroundColor = defaultBackgroundColor
-    self.rounded(radius: radius)
+    setCornerRadius()
   }
   
   required init?(coder: NSCoder) {
@@ -49,12 +50,16 @@ final class RoundedFilledButton: Button {
   
   override func layoutIfNeeded() {
     super.layoutIfNeeded()
-    cornerRadius == 0 ? rounded() : rounded(radius: cornerRadius)
+    setCornerRadius()
   }
   
   override func didSetIsEnabled() {
     super.didSetIsEnabled()
     backgroundColor = isEnabled ? defaultBackgroundColor : .secondaryGrey
+  }
+  
+  private func setCornerRadius() {
+    cornerRadius == 0 ? rounded() : rounded(radius: cornerRadius)
   }
   
 }

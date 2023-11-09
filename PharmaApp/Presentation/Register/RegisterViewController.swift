@@ -36,6 +36,7 @@ final class RegisterViewController: UIViewController {
 private extension RegisterViewController {
     
   func setupViewDidLoad() {
+    view.backgroundColor = .white
   }
   
   func bindViewModel() {
