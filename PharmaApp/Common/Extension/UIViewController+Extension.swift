@@ -9,6 +9,8 @@ import UIKit
 
 extension UIViewController {
   
+  var loadingController: LoadingController { LoadingController() }
+  
   var launchPadController: LaunchPadController? {
     return self.navigationController as? LaunchPadController
   }
@@ -20,6 +22,15 @@ extension UIViewController {
     }
     alert.addAction(alertAction)
     present(alert, animated: true)
+  }
+  
+  func showLoading() {
+    loadingController.modalPresentationStyle = .overCurrentContext
+    present(loadingController, animated: true, completion: nil)
+  }
+  
+  func hideLoading() {
+    loadingController.dismiss(animated: true)
   }
   
 }

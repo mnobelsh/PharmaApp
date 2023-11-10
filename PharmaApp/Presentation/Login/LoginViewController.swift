@@ -74,12 +74,14 @@ private extension LoginViewController {
   func didReceiveLoginState(_ state: State?) {
     switch state {
     case .loading:
-      break
+      showLoading()
     case .success:
+      hideLoading()
       AppFlowCoordinator.shared.setLaunchPadFlow()
     case .error(let errorState):
+      hideLoading()
       handleErrorState(error: errorState)
-    default: break
+    default: hideLoading()
     }
   }
   

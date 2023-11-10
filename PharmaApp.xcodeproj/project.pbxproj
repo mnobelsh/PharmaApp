@@ -26,6 +26,7 @@
 		FFA106AC2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106AB2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift */; };
 		FFA106AF2AFE1F0900C2A6D5 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106AE2AFE1F0900C2A6D5 /* LoginUseCase.swift */; };
 		FFA106B12AFE2C5B00C2A6D5 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106B02AFE2C5B00C2A6D5 /* LogoutUseCase.swift */; };
+		FFA106B32AFE389A00C2A6D5 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106B22AFE389A00C2A6D5 /* LoadingController.swift */; };
 		FFBF8F192AF94C380064D3BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F182AF94C380064D3BD /* AppDelegate.swift */; };
 		FFBF8F1B2AF94C380064D3BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F1A2AF94C380064D3BD /* SceneDelegate.swift */; };
 		FFBF8F232AF94C380064D3BD /* PharmaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F212AF94C380064D3BD /* PharmaApp.xcdatamodeld */; };
@@ -129,6 +130,7 @@
 		FFA106AB2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
 		FFA106AE2AFE1F0900C2A6D5 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		FFA106B02AFE2C5B00C2A6D5 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
+		FFA106B22AFE389A00C2A6D5 /* LoadingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
 		FFBF8F152AF94C380064D3BD /* PharmaApp Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PharmaApp Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBF8F182AF94C380064D3BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFBF8F1A2AF94C380064D3BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				FFBF8F762AF9631B0064D3BD /* Button */,
 				FFBF8F732AF95C6B0064D3BD /* Navigation */,
 				FFD8C3F52AFD42EB004B98DD /* AuthenticationContainerView.swift */,
+				FFA106B22AFE389A00C2A6D5 /* LoadingController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -978,6 +981,7 @@
 				FFA106842AFE13BC00C2A6D5 /* APIService.swift in Sources */,
 				FFA106A92AFE1C0100C2A6D5 /* AuthenticationRepository.swift in Sources */,
 				FFBF8F7A2AFB520E0064D3BD /* LoginViewController.swift in Sources */,
+				FFA106B32AFE389A00C2A6D5 /* LoadingController.swift in Sources */,
 				FFA106AC2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift in Sources */,
 				FFBF8F9B2AFBAEC10064D3BD /* Button.swift in Sources */,
 				FFE51A812AFCDE19004132A5 /* InputFormView.swift in Sources */,

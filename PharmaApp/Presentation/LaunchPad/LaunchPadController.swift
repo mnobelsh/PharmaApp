@@ -81,11 +81,14 @@ private extension LaunchPadController {
   
   func didReceiveLogoutState(_ state: State?) {
     switch state {
+    case .loading: showLoading()
     case .success:
+      hideLoading()
       AppFlowCoordinator.shared.setAuthenticationFlow()
     case .error:
+      hideLoading()
       showAlert(title: "Unable to logout user", message: "please try again later")
-    default: break
+    default: hideLoading()
     }
   }
     
