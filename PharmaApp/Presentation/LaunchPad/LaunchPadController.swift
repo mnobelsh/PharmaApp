@@ -65,7 +65,9 @@ private extension LaunchPadController {
       sideBarView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
     
-    viewControllers = [HomeViewController(viewModel: HomeViewModelImpl(request: .init()))]
+    view.layoutIfNeeded()
+
+    setViewControllers([HomeViewController(viewModel: HomeViewModelImpl(request: .init()))], animated: false)
   }
   
   func bindViewModel() {

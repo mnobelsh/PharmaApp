@@ -5,6 +5,7 @@ def shared_pods
   pod 'Alamofire'
   pod 'Swinject'
   pod 'KeychainAccess'
+  pod 'SDWebImage', '~> 5.0'
 end
 
 def ui_pods
