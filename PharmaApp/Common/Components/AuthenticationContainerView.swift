@@ -88,7 +88,7 @@ final class AuthenticationContainerView: UIScrollView {
     ])
   }
   
-  func setupFooterView() {
+  private func setupFooterView() {
     switch pageType {
     case .register:
       footerView.redirectionLabel.setAttributedText(

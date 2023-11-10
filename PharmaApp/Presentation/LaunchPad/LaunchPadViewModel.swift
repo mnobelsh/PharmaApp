@@ -13,10 +13,12 @@ protocol LaunchPadViewModelDelegate: AnyObject {
 
 protocol LaunchPadViewModelInput {
   func viewDidLoad()
+  func didTapLogout()
 }
 
 protocol LaunchPadViewModelOutput {
-  var responsePublisher: Published<LaunchPadViewModelImpl.Response?>.Publisher { get }
+  var state: Published<State?>.Publisher { get }
+  var logoutState: Published<State?>.Publisher { get }
 }
 
 protocol LaunchPadViewModel: LaunchPadViewModelDelegate, LaunchPadViewModelInput, LaunchPadViewModelOutput {}
@@ -26,21 +28,18 @@ struct LaunchPadViewModelRequest {
 
 final class LaunchPadViewModelImpl: LaunchPadViewModel {
     
-  enum ViewModelError: Error {
-  }
-  
-  enum Response {
-      case error(ViewModelError)
-  }
-
   weak var delegate: LaunchPadViewModelDelegate?
   let request: LaunchPadViewModelRequest
   
+  @Inject private var logoutUseCase: LogoutUseCase
+  
   // Output Setter
-  @Published private var response: Response?
+  @Published private var stateValue: State?
+  @Published private var logoutStateValue: State?
   
   // Output
-  var responsePublisher: Published<LaunchPadViewModelImpl.Response?>.Publisher { $response }
+  var state: Published<State?>.Publisher { $stateValue }
+  var logoutState: Published<State?>.Publisher { $logoutStateValue }
 
   init(request: LaunchPadViewModelRequest) {
       self.request = request
@@ -57,6 +56,18 @@ private extension LaunchPadViewModelImpl {
 extension LaunchPadViewModelImpl {
 
   func viewDidLoad() {
+  }
+  
+  func didTapLogout() {
+    logoutStateValue = .loading
+    Task {
+      do {
+        try await logoutUseCase.execute(requestValue: .init())
+        logoutStateValue = .success
+      } catch let error as ErrorState {
+        logoutStateValue = .error(error: error)
+      }
+    }
   }
 
 }

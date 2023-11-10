@@ -10,6 +10,22 @@
 		1ECFE0B238D16A8A865A0FEF /* Pods_PharmaAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D52BF5613CBCC4F554855975 /* Pods_PharmaAppTests.framework */; };
 		399816FAC58ABEFB72AD7E7C /* Pods_PharmaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B44F0758A2EF4A4D40997EBD /* Pods_PharmaApp.framework */; };
 		6542BBF87F376CA833BC12A6 /* Pods_PharmaApp_PharmaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 648C52B26CEB69F90CFBABCD /* Pods_PharmaApp_PharmaAppUITests.framework */; };
+		FFA106842AFE13BC00C2A6D5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106832AFE13BC00C2A6D5 /* APIService.swift */; };
+		FFA106862AFE143100C2A6D5 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106852AFE143100C2A6D5 /* NetworkLogger.swift */; };
+		FFA106882AFE145B00C2A6D5 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106872AFE145B00C2A6D5 /* Data+Extension.swift */; };
+		FFA1068A2AFE146A00C2A6D5 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106892AFE146A00C2A6D5 /* Encodable+Extension.swift */; };
+		FFA1068D2AFE14C200C2A6D5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1068C2AFE14C200C2A6D5 /* AppState.swift */; };
+		FFA1068F2AFE14F800C2A6D5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1068E2AFE14F800C2A6D5 /* Constant.swift */; };
+		FFA106942AFE160800C2A6D5 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106932AFE160800C2A6D5 /* State.swift */; };
+		FFA106982AFE16AC00C2A6D5 /* UserResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106972AFE16AC00C2A6D5 /* UserResponseDTO.swift */; };
+		FFA1069B2AFE16BF00C2A6D5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1069A2AFE16BF00C2A6D5 /* User.swift */; };
+		FFA1069F2AFE189100C2A6D5 /* LoginResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1069E2AFE189100C2A6D5 /* LoginResponseDTO.swift */; };
+		FFA106A32AFE18FC00C2A6D5 /* LoginRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106A22AFE18FC00C2A6D5 /* LoginRequestDTO.swift */; };
+		FFA106A52AFE195200C2A6D5 /* ErrorResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106A42AFE195200C2A6D5 /* ErrorResponseDTO.swift */; };
+		FFA106A92AFE1C0100C2A6D5 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106A82AFE1C0100C2A6D5 /* AuthenticationRepository.swift */; };
+		FFA106AC2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106AB2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift */; };
+		FFA106AF2AFE1F0900C2A6D5 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106AE2AFE1F0900C2A6D5 /* LoginUseCase.swift */; };
+		FFA106B12AFE2C5B00C2A6D5 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA106B02AFE2C5B00C2A6D5 /* LogoutUseCase.swift */; };
 		FFBF8F192AF94C380064D3BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F182AF94C380064D3BD /* AppDelegate.swift */; };
 		FFBF8F1B2AF94C380064D3BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F1A2AF94C380064D3BD /* SceneDelegate.swift */; };
 		FFBF8F232AF94C380064D3BD /* PharmaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFBF8F212AF94C380064D3BD /* PharmaApp.xcdatamodeld */; };
@@ -97,6 +113,22 @@
 		CAD584B3A6F798CE7EB3BB40 /* Pods-PharmaApp-PharmaAppUITests.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmaApp-PharmaAppUITests.production.xcconfig"; path = "Target Support Files/Pods-PharmaApp-PharmaAppUITests/Pods-PharmaApp-PharmaAppUITests.production.xcconfig"; sourceTree = "<group>"; };
 		D52BF5613CBCC4F554855975 /* Pods_PharmaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PharmaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFEFE0C2AB5877ADD43C568E /* Pods-PharmaApp.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmaApp.production.xcconfig"; path = "Target Support Files/Pods-PharmaApp/Pods-PharmaApp.production.xcconfig"; sourceTree = "<group>"; };
+		FFA106832AFE13BC00C2A6D5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FFA106852AFE143100C2A6D5 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		FFA106872AFE145B00C2A6D5 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		FFA106892AFE146A00C2A6D5 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		FFA1068C2AFE14C200C2A6D5 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FFA1068E2AFE14F800C2A6D5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FFA106932AFE160800C2A6D5 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		FFA106972AFE16AC00C2A6D5 /* UserResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponseDTO.swift; sourceTree = "<group>"; };
+		FFA1069A2AFE16BF00C2A6D5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FFA1069E2AFE189100C2A6D5 /* LoginResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDTO.swift; sourceTree = "<group>"; };
+		FFA106A22AFE18FC00C2A6D5 /* LoginRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestDTO.swift; sourceTree = "<group>"; };
+		FFA106A42AFE195200C2A6D5 /* ErrorResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponseDTO.swift; sourceTree = "<group>"; };
+		FFA106A82AFE1C0100C2A6D5 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		FFA106AB2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
+		FFA106AE2AFE1F0900C2A6D5 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		FFA106B02AFE2C5B00C2A6D5 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		FFBF8F152AF94C380064D3BD /* PharmaApp Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PharmaApp Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFBF8F182AF94C380064D3BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFBF8F1A2AF94C380064D3BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +244,91 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FFA106822AFE13B100C2A6D5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106832AFE13BC00C2A6D5 /* APIService.swift */,
+				FFA106852AFE143100C2A6D5 /* NetworkLogger.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FFA106902AFE15B100C2A6D5 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				FFA1068C2AFE14C200C2A6D5 /* AppState.swift */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		FFA106952AFE166600C2A6D5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106962AFE16A100C2A6D5 /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FFA106962AFE16A100C2A6D5 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106A12AFE18C500C2A6D5 /* Request */,
+				FFA106A02AFE18C000C2A6D5 /* Reponse */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		FFA106992AFE16B000C2A6D5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FFA1069A2AFE16BF00C2A6D5 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FFA106A02AFE18C000C2A6D5 /* Reponse */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106A42AFE195200C2A6D5 /* ErrorResponseDTO.swift */,
+				FFA1069E2AFE189100C2A6D5 /* LoginResponseDTO.swift */,
+				FFA106972AFE16AC00C2A6D5 /* UserResponseDTO.swift */,
+			);
+			path = Reponse;
+			sourceTree = "<group>";
+		};
+		FFA106A12AFE18C500C2A6D5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106A22AFE18FC00C2A6D5 /* LoginRequestDTO.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FFA106A62AFE1BE300C2A6D5 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106A82AFE1C0100C2A6D5 /* AuthenticationRepository.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		FFA106AA2AFE1C3300C2A6D5 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106AB2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		FFA106AD2AFE1EF900C2A6D5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				FFA106AE2AFE1F0900C2A6D5 /* LoginUseCase.swift */,
+				FFA106B02AFE2C5B00C2A6D5 /* LogoutUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		FFBF8F0C2AF94C380064D3BD = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +385,9 @@
 		FFBF8F572AF9515E0064D3BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				FFA106AA2AFE1C3300C2A6D5 /* Repositories */,
+				FFA106952AFE166600C2A6D5 /* Network */,
+				FFA106902AFE15B100C2A6D5 /* Persistent */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -286,6 +406,7 @@
 		FFBF8F592AF951660064D3BD /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FFA106822AFE13B100C2A6D5 /* Network */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -306,6 +427,9 @@
 		FFBF8F5B2AF951740064D3BD /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FFA106AD2AFE1EF900C2A6D5 /* UseCases */,
+				FFA106A62AFE1BE300C2A6D5 /* Interfaces */,
+				FFA106992AFE16B000C2A6D5 /* Entities */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -343,6 +467,8 @@
 				FFD55A9C2AFBD024008226ED /* UINavigationController+Extension.swift */,
 				FFE51A752AFCB075004132A5 /* NSNotification+Extension.swift */,
 				FFE51A822AFD3C47004132A5 /* UITapGestureRecognizer+Extension.swift */,
+				FFA106872AFE145B00C2A6D5 /* Data+Extension.swift */,
+				FFA106892AFE146A00C2A6D5 /* Encodable+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,6 +477,8 @@
 			isa = PBXGroup;
 			children = (
 				FFBF8F662AF9556E0064D3BD /* Injector.swift */,
+				FFA1068E2AFE14F800C2A6D5 /* Constant.swift */,
+				FFA106932AFE160800C2A6D5 /* State.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -799,7 +927,9 @@
 				FFD55A9A2AFBCCDC008226ED /* AccountViewController.swift in Sources */,
 				FFBF8F6B2AF956670064D3BD /* AppFlowCoordinator.swift in Sources */,
 				FFD8C4022AFD5705004B98DD /* MainMenuTableViewCell.swift in Sources */,
+				FFA1068D2AFE14C200C2A6D5 /* AppState.swift in Sources */,
 				FFBF8F692AF955C10064D3BD /* AppDIContainer.swift in Sources */,
+				FFA106942AFE160800C2A6D5 /* State.swift in Sources */,
 				FFD8C3FC2AFD55C3004B98DD /* ServiceCardView.swift in Sources */,
 				FFBF8F232AF94C380064D3BD /* PharmaApp.xcdatamodeld in Sources */,
 				FFBF8F832AFB525F0064D3BD /* HomeViewModel.swift in Sources */,
@@ -812,29 +942,43 @@
 				FFE51A722AFCA618004132A5 /* ProfileViewController.swift in Sources */,
 				FFBF8F752AF95C7B0064D3BD /* NavigationBar.swift in Sources */,
 				FFBF8F9D2AFBB22E0064D3BD /* UIView+Extension.swift in Sources */,
+				FFA106A32AFE18FC00C2A6D5 /* LoginRequestDTO.swift in Sources */,
 				FFBF8F192AF94C380064D3BD /* AppDelegate.swift in Sources */,
 				FFBF8F8A2AFB557C0064D3BD /* LaunchPadController.swift in Sources */,
 				FFBF8F632AF953B90064D3BD /* LaunchScreenViewController.swift in Sources */,
+				FFA1069F2AFE189100C2A6D5 /* LoginResponseDTO.swift in Sources */,
 				FFBF8F7B2AFB520E0064D3BD /* LoginViewModel.swift in Sources */,
 				FFBF8F8E2AFB560F0064D3BD /* SideBarView.swift in Sources */,
+				FFA106862AFE143100C2A6D5 /* NetworkLogger.swift in Sources */,
+				FFA106A52AFE195200C2A6D5 /* ErrorResponseDTO.swift in Sources */,
 				FFE51A7B2AFCD851004132A5 /* ProfileContainerView.swift in Sources */,
 				FFD55A952AFBBC3A008226ED /* UILabel+Extension.swift in Sources */,
 				FFD8C3FA2AFD55AB004B98DD /* ProductCardView.swift in Sources */,
 				FFBF8F7F2AFB52390064D3BD /* RegisterViewModel.swift in Sources */,
+				FFA106882AFE145B00C2A6D5 /* Data+Extension.swift in Sources */,
 				FFD8C3F62AFD42EB004B98DD /* AuthenticationContainerView.swift in Sources */,
 				FFD8C4042AFD579D004B98DD /* HorizontalScrollTableViewCell.swift in Sources */,
 				FFBF8F8B2AFB557C0064D3BD /* LaunchPadViewModel.swift in Sources */,
 				FFE51A6D2AFC998F004132A5 /* TextFieldView.swift in Sources */,
+				FFA106B12AFE2C5B00C2A6D5 /* LogoutUseCase.swift in Sources */,
+				FFA1068F2AFE14F800C2A6D5 /* Constant.swift in Sources */,
 				FFD8C40A2AFD58EA004B98DD /* ProductCollectionViewCell.swift in Sources */,
 				FFE51A7F2AFCDBA5004132A5 /* UserInfoCardView.swift in Sources */,
 				FFBF8F642AF953B90064D3BD /* LaunchScreenViewModel.swift in Sources */,
 				FFD55A9B2AFBCCDC008226ED /* AccountViewModel.swift in Sources */,
 				FFE51A742AFCA7D4004132A5 /* SettingViewController.swift in Sources */,
 				FFD8C4082AFD57FF004B98DD /* HomeTableView.swift in Sources */,
+				FFA1069B2AFE16BF00C2A6D5 /* User.swift in Sources */,
 				FFBF8F7E2AFB52390064D3BD /* RegisterViewController.swift in Sources */,
 				FFD8C4062AFD57A4004B98DD /* ServiceTableViewCell.swift in Sources */,
+				FFA106982AFE16AC00C2A6D5 /* UserResponseDTO.swift in Sources */,
 				FFBF8F1B2AF94C380064D3BD /* SceneDelegate.swift in Sources */,
+				FFA106AF2AFE1F0900C2A6D5 /* LoginUseCase.swift in Sources */,
+				FFA1068A2AFE146A00C2A6D5 /* Encodable+Extension.swift in Sources */,
+				FFA106842AFE13BC00C2A6D5 /* APIService.swift in Sources */,
+				FFA106A92AFE1C0100C2A6D5 /* AuthenticationRepository.swift in Sources */,
 				FFBF8F7A2AFB520E0064D3BD /* LoginViewController.swift in Sources */,
+				FFA106AC2AFE1C4100C2A6D5 /* AuthenticationRepositoryImpl.swift in Sources */,
 				FFBF8F9B2AFBAEC10064D3BD /* Button.swift in Sources */,
 				FFE51A812AFCDE19004132A5 /* InputFormView.swift in Sources */,
 				FFE51A832AFD3C47004132A5 /* UITapGestureRecognizer+Extension.swift in Sources */,
@@ -955,6 +1099,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTH_BASE_URL = "https://reqres.in/api/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8MV3PNW544;
@@ -1090,6 +1235,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTH_BASE_URL = "https://reqres.in/api/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8MV3PNW544;
@@ -1218,6 +1364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				AUTH_BASE_URL = "https://reqres.in/api/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8MV3PNW544;

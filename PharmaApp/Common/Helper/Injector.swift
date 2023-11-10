@@ -10,19 +10,14 @@ import Swinject
 
 @propertyWrapper
 struct Inject<T> {
+  private var component: T
   
-  private let name: String?
-  
-  var wrappedValue: T {
-    get {
-      let resolved = AppDIContainer.shared.container.resolve(T.self, name: name)
-      assert(resolved != nil, "Dependency not found: \(String(describing: T.self)) \(String(describing: name))")
-      return resolved!
-    }
+  init(factoryName name: String? = nil) {
+    self.component = AppDIContainer.shared.container.resolve(T.self, name: name)!
   }
   
-  init(name: String) {
-    self.name = name
+  public var wrappedValue: T {
+      get { return component}
+      mutating set { component = newValue }
   }
-  
 }

@@ -59,9 +59,37 @@ private extension LoginViewController {
     welcomeContainerView.setInputFormView(inputFormView)
     inputFormView.textFieldViews.last?.setRightTitleButton(button: forgetPasswordButton)
     welcomeContainerView.containerDelegate = self
+    inputFormView.delegate = self
   }
   
   func bindViewModel() {
+    viewModel.loginState
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] state in
+        self?.didReceiveLoginState(state)
+      }
+      .store(in: &cancellables)
+  }
+  
+  func didReceiveLoginState(_ state: State?) {
+    switch state {
+    case .loading:
+      break
+    case .success:
+      AppFlowCoordinator.shared.setLaunchPadFlow()
+    case .error(let errorState):
+      handleErrorState(error: errorState)
+    default: break
+    }
+  }
+  
+  func handleErrorState(error: ErrorState) {
+    switch error {
+    case .backend(let description), .uiError(let description):
+      showAlert(title: description, message: nil)
+    default:
+      showAlert(title: "Something went wrong", message: "Please try again later")
+    }
   }
   
   func navigateToRegister() {
@@ -75,11 +103,28 @@ private extension LoginViewController {
 extension LoginViewController: AuthenticationContainerViewDelegate {
   
   func authContainerView(_ containerView: AuthenticationContainerView, didTapActionButton button: RoundedFilledButton) {
-    AppFlowCoordinator.shared.setLaunchPadFlow()
+    viewModel.didTapLogin()
   }
 
   func authContainerView(_ containerView: AuthenticationContainerView, didTapRedirectionLabel label: UILabel, sender: UITapGestureRecognizer, willNavigateTo destination: AuthenticationContainerView.PageType) {
     navigateToRegister()
   }
+
+}
+
+extension LoginViewController: InputFormViewDelegate {
+  
+  
+  func inputFormField(_ inputFormView: InputFormView, shouldChangeCharactersIn textFieldView: TextFieldView, updatedText: String, forItem item: InputFormItem) -> Bool {
+    switch item {
+    case .email:
+      viewModel.didSetEmail(updatedText)
+    case .password:
+      viewModel.didSetPassword(updatedText)
+    default: break
+    }
+    return true
+  }
+  
 
 }

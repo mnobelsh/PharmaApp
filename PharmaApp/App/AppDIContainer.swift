@@ -18,7 +18,16 @@ final class AppDIContainer {
   }
   
   func register() {
-    
+    container.register(APIService.self) { r in APIServiceImpl() }
+    container.register(AuthenticationRepository.self) { r in
+      AuthenticationRepositoryImpl(apiService: r.resolve(APIService.self)!)
+    }
+    container.register(LoginUseCase.self) { r in
+      LoginUseCase(authRepository: r.resolve(AuthenticationRepository.self)!)
+    }
+    container.register(LogoutUseCase.self) { r in
+      LogoutUseCase(authRepository: r.resolve(AuthenticationRepository.self)!)
+    }
   }
   
 }

@@ -71,6 +71,22 @@ private extension LaunchPadController {
   }
   
   func bindViewModel() {
+    viewModel.logoutState
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] state in
+        self?.didReceiveLogoutState(state)
+      }
+      .store(in: &cancellables)
+  }
+  
+  func didReceiveLogoutState(_ state: State?) {
+    switch state {
+    case .success:
+      AppFlowCoordinator.shared.setAuthenticationFlow()
+    case .error:
+      showAlert(title: "Unable to logout user", message: "please try again later")
+    default: break
+    }
   }
     
   func navigateToAccountViewController(selectedIndex: Int) {
@@ -103,7 +119,7 @@ extension LaunchPadController: SideBarViewDelegate {
   }
   
   func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {
-    AppFlowCoordinator.shared.setAuthenticationFlow()
+    viewModel.didTapLogout()
   }
   
 }
