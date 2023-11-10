@@ -64,4 +64,9 @@ extension ProfileViewController: InputFormViewDelegate {
     
   }
   
+  func inputFormField(_ inputFormView: InputFormView, shouldChangeCharactersIn textFieldView: TextFieldView, updatedText: String, forItem item: InputFormItem) -> Bool {
+    return true
+  }
+  
+  
 }

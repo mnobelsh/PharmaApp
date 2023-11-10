@@ -29,7 +29,12 @@ final class AppFlowCoordinator {
   func launchApp(window: UIWindow?) {
     self.window = window
     window?.makeKeyAndVisible()
-    setAuthenticationFlow()
+    if AppState.shared.getAccessToken()?
+      .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false {
+      setLaunchPadFlow()
+    } else {
+      setAuthenticationFlow()
+    }
   }
   
   func setAuthenticationFlow() {

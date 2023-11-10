@@ -9,7 +9,6 @@ def shared_pods
 end
 
 def ui_pods
-  pod 'SkeletonView'
   pod 'Parchment', '~> 3.2'
   pod 'BetterSegmentedControl', '~> 2.0'
   pod 'IQKeyboardManagerSwift'

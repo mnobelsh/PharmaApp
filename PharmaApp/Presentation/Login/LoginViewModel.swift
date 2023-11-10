@@ -13,10 +13,14 @@ protocol LoginViewModelDelegate: AnyObject {
 
 protocol LoginViewModelInput {
   func viewDidLoad()
+  func didSetEmail(_ email: String?)
+  func didSetPassword(_ password: String?)
+  func didTapLogin()
 }
 
 protocol LoginViewModelOutput {
-  var responsePublisher: Published<LoginViewModelImpl.Response?>.Publisher { get }
+  var state: Published<State?>.Publisher { get }
+  var loginState: Published<State?>.Publisher { get }
 }
 
 protocol LoginViewModel: LoginViewModelDelegate, LoginViewModelInput, LoginViewModelOutput {}
@@ -26,21 +30,21 @@ struct LoginViewModelRequest {
 
 final class LoginViewModelImpl: LoginViewModel {
     
-  enum ViewModelError: Error {
-  }
-  
-  enum Response {
-    case error(ViewModelError)
-  }
-
   weak var delegate: LoginViewModelDelegate?
   let request: LoginViewModelRequest
   
+  @Inject private var loginUseCase: LoginUseCase
+  
+  private var email: String?
+  private var password: String?
+  
   // Output Setter
-  @Published private var response: Response?
+  @Published private var stateValue: State?
+  @Published private var loginStateValue: State?
   
   // Output
-  var responsePublisher: Published<LoginViewModelImpl.Response?>.Publisher { $response }
+  var state: Published<State?>.Publisher { $stateValue }
+  var loginState: Published<State?>.Publisher { $loginStateValue }
 
   init(request: LoginViewModelRequest) {
     self.request = request
@@ -57,6 +61,31 @@ private extension LoginViewModelImpl {
 extension LoginViewModelImpl {
 
   func viewDidLoad() {
+  }
+  
+  func didSetEmail(_ email: String?) {
+    self.email = email
+  }
+  
+  func didSetPassword(_ password: String?) {
+    self.password = password
+  }
+  
+  func didTapLogin() {
+    loginStateValue = nil
+    guard let email = email, let password = password else {
+      loginStateValue = .error(error: .uiError(description: "Email or password cannot be empty."))
+      return
+    }
+    loginStateValue = .loading
+    Task {
+      do {
+        try await loginUseCase.execute(requestValue: .init(email: email, password: password))
+        loginStateValue = .success
+      } catch let error as ErrorState {
+        loginStateValue = .error(error: error)
+      }
+    }
   }
 
 }

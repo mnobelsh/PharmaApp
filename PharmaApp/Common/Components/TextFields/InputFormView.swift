@@ -18,6 +18,25 @@ protocol InputFormViewDelegate: AnyObject {
     didBeginEditing textFieldView: TextFieldView,
     forItem item: InputFormItem
   )
+  func inputFormField(
+    _ inputFormView: InputFormView,
+    shouldChangeCharactersIn textFieldView: TextFieldView,
+    updatedText: String,
+    forItem item: InputFormItem
+  ) -> Bool
+}
+
+extension InputFormViewDelegate {
+  func inputFormField(
+    _ inputFormView: InputFormView,
+    didEndEditing textFieldView: TextFieldView,
+    forItem item: InputFormItem
+  ) {}
+  func inputFormField(
+    _ inputFormView: InputFormView,
+    didBeginEditing textFieldView: TextFieldView,
+    forItem item: InputFormItem
+  ) {}
 }
 
 enum InputFormItem: Int {
@@ -68,6 +87,10 @@ final class InputFormView: UIStackView {
   
   required init(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func getTextFieldView(for item: InputFormItem) -> TextFieldView? {
+    return self.textFieldViews.first(where: { $0.tag == item.rawValue })
   }
   
 }
@@ -124,6 +147,16 @@ extension InputFormView: UITextFieldDelegate {
           let textField = getTextFieldView(from: textField)
     else { return }
     delegate?.inputFormField(self, didEndEditing: textField, forItem: item)
+  }
+  
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    let text = textField.text ?? ""
+    guard let item = getItem(from: textField),
+          let textField = getTextFieldView(from: textField)
+    else { return false }
+    guard let textRange = Range(range, in: text) else { return false }
+    let updatedText = text.replacingCharacters(in: textRange, with: string)
+    return delegate?.inputFormField(self, shouldChangeCharactersIn: textField, updatedText: updatedText, forItem: item) ?? true
   }
   
 }
