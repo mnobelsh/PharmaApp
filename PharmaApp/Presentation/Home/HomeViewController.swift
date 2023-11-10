@@ -62,25 +62,48 @@ private extension HomeViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    return HomeTableView.Section.allCases.count
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return mainMenuItems.count
+    switch HomeTableView.Section.allCases[section] {
+    case .mainMenu: return mainMenuItems.count
+    case .product: return 1
+    case .service: return 10
+    }
+    
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let index = indexPath.row
-    let item = mainMenuItems[index]
-    if index == 0 || index%2 != 0 {
-      guard let cell: LeftMainMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: LeftMainMenuTableViewCell.reuseIdentifier, for: indexPath) as? LeftMainMenuTableViewCell else { return UITableViewCell() }
+    
+    switch HomeTableView.Section.allCases[indexPath.section] {
+    case .mainMenu:
+      let item = mainMenuItems[index]
+      if index == 0 || index%2 != 0 {
+        guard let cell: LeftMainMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: LeftMainMenuTableViewCell.reuseIdentifier, for: indexPath) as? LeftMainMenuTableViewCell else { return UITableViewCell() }
+        cell.setCell(item: item, index: index)
+        return cell
+      }
+      guard let cell: RightMainMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: RightMainMenuTableViewCell.reuseIdentifier, for: indexPath) as? RightMainMenuTableViewCell else { return UITableViewCell() }
       cell.setCell(item: item, index: index)
       return cell
+    case .product:
+      guard let cell: HorizontalScrollTableViewCell = tableView.dequeueReusableCell(withIdentifier: HorizontalScrollTableViewCell.reuseIdentifier, for: indexPath) as? HorizontalScrollTableViewCell else { return UITableViewCell() }
+      return cell
+    case .service:
+      guard let cell: ServiceTableViewCell = tableView.dequeueReusableCell(withIdentifier: ServiceTableViewCell.reuseIdentifier, for: indexPath) as? ServiceTableViewCell else { return UITableViewCell() }
+      return cell
     }
-    guard let cell: RightMainMenuTableViewCell = tableView.dequeueReusableCell(withIdentifier: RightMainMenuTableViewCell.reuseIdentifier, for: indexPath) as? RightMainMenuTableViewCell else { return UITableViewCell() }
-    cell.setCell(item: item, index: index)
-    return cell
+
   }
   
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+  }
+  
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 40
+  }
   
 }

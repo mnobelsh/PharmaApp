@@ -79,7 +79,6 @@ private extension LoginViewController {
       hideLoading()
       AppFlowCoordinator.shared.setLaunchPadFlow()
     case .error(let errorState):
-      hideLoading()
       handleErrorState(error: errorState)
     default: hideLoading()
     }

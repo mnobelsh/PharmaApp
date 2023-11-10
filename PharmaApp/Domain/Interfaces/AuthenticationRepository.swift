@@ -10,7 +10,6 @@ import Foundation
 protocol AuthenticationRepository {
   
   func login(request: LoginRequestDTO) async throws -> LoginResponseDTO?
-  func register()
   func logout() async throws
   
 }

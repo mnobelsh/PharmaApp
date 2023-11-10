@@ -19,18 +19,7 @@ class LoadingController: UIViewController {
       ]
       return indicator
     }()
-    
-    var blurEffectView: UIVisualEffectView = {
-      let blurEffect = UIBlurEffect(style: .dark)
-      let blurEffectView = UIVisualEffectView(effect: blurEffect)
-      blurEffectView.alpha = 0.5
-      blurEffectView.autoresizingMask = [
-          .flexibleWidth, .flexibleHeight
-      ]
-      
-      return blurEffectView
-    }()
-    
+
     override func viewDidLoad() {
       view.backgroundColor = UIColor.clear
       loadingActivityIndicator.center = CGPoint(

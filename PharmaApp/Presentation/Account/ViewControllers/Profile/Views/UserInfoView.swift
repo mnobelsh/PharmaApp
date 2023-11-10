@@ -10,7 +10,7 @@ import UIKit
 class UserInfoView: UIStackView {
   
   lazy var profileImageView: UIImageView = {
-    let imageView = UIImageView()
+    let imageView = UIImageView(image: .profilePlaceholder)
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.clipsToBounds = true
     imageView.backgroundColor = .tertiaryGrey

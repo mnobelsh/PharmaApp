@@ -8,6 +8,10 @@
 import UIKit
 
 final class HomeTableView: UITableView {
+  
+  enum Section: CaseIterable {
+    case mainMenu, product, service
+  }
 
   init(frame: CGRect) {
     super.init(frame: frame, style: .plain)

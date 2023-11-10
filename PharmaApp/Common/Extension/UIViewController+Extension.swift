@@ -8,29 +8,28 @@
 import UIKit
 
 extension UIViewController {
-  
-  var loadingController: LoadingController { LoadingController() }
-  
+
   var launchPadController: LaunchPadController? {
     return self.navigationController as? LaunchPadController
   }
   
   func showAlert(title: String? = nil, message: String?) {
+    dismiss(animated: true)
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let alertAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default) { action in
-      alert.dismiss(animated: true)
-    }
+    let alertAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel)
     alert.addAction(alertAction)
     present(alert, animated: true)
   }
   
   func showLoading() {
+    let loadingController = LoadingController()
+    loadingController.modalTransitionStyle = .crossDissolve
     loadingController.modalPresentationStyle = .overCurrentContext
     present(loadingController, animated: true, completion: nil)
   }
   
   func hideLoading() {
-    loadingController.dismiss(animated: true)
+    dismiss(animated: true)
   }
   
 }

@@ -27,10 +27,6 @@ final class AuthenticationRepositoryImpl: AuthenticationRepository {
     return response
   }
   
-  func register() {
-    
-  }
-  
   func logout() async throws {
     try await apiService.post(to: baseUrl + "logout", body: nil)
     try AppState.shared.setAccessToken(nil)
