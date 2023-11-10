@@ -1,0 +1,128 @@
+//
+//  LaunchPadController.swift
+//  PharmaApp
+//
+//  Created by Muhammad Nobel Shidqi on 08/11/23.
+//  Copyright (c) 2023 All rights reserved.
+//
+
+import UIKit
+import Combine
+
+final class LaunchPadController: UINavigationController {
+    
+  private(set) var viewModel: LaunchPadViewModel!
+  private var cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
+  
+  var topPadding: CGFloat = 0
+  
+  // SUBVIEWS
+  lazy var appNavigationBar: NavigationBar = NavigationBar()
+  lazy var sideBarView: SideBarView = SideBarView()
+    
+  init(viewModel: LaunchPadViewModel) {
+    self.viewModel = viewModel
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupViewDidLoad()
+    viewModel.viewDidLoad()
+    bindViewModel()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    topPadding = appNavigationBar.frame.height
+  }
+    
+}
+
+// MARK: Private Functions
+private extension LaunchPadController {
+    
+  func setupViewDidLoad() {
+    sideBarView.delegate = self
+    sideBarView.isHidden = true
+    appNavigationBar.delegate = self
+    setNavigationBarHidden(true, animated: false)
+    view.addSubview(appNavigationBar)
+    view.addSubview(sideBarView)
+  
+    NSLayoutConstraint.activate([
+      appNavigationBar.topAnchor.constraint(equalTo: view.topAnchor),
+      appNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      appNavigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      
+      sideBarView.topAnchor.constraint(equalTo: view.topAnchor),
+      sideBarView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      sideBarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      sideBarView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+    
+    view.layoutIfNeeded()
+
+    setViewControllers([HomeViewController(viewModel: HomeViewModelImpl(request: .init()))], animated: false)
+  }
+  
+  func bindViewModel() {
+    viewModel.logoutState
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] state in
+        self?.didReceiveLogoutState(state)
+      }
+      .store(in: &cancellables)
+  }
+  
+  func didReceiveLogoutState(_ state: State?) {
+    switch state {
+    case .loading: showLoading()
+    case .success:
+      hideLoading()
+      AppFlowCoordinator.shared.setAuthenticationFlow()
+    case .error:
+      hideLoading()
+      showAlert(title: "Unable to logout user", message: "please try again later")
+    default: hideLoading()
+    }
+  }
+    
+  func navigateToAccountViewController(selectedIndex: Int) {
+    guard viewControllers.last?.isKind(of: AccountViewController.self) == false else { return }
+    self.pushViewController(AccountViewController(selectedIndex: selectedIndex, viewModel: AccountViewModelImpl(request: .init())), animated: true)
+  }
+  
+}
+
+extension LaunchPadController: NavigationBarDelegate {
+  
+  func navigationBar(_ navigationBar: NavigationBar, didTapMenu menuButton: UIButton) {
+    sideBarView.isHidden = false
+  }
+  
+}
+
+extension LaunchPadController: SideBarViewDelegate {
+  
+  func sideBarViewDidTapMyProfile(_ sideBarView: SideBarView) {
+    sideBarView.animateHideContentView()
+    navigateToAccountViewController(selectedIndex: 0)
+    NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 0])
+  }
+  
+  func sideBarViewDidTapSetting(_ sideBarView: SideBarView) {
+    sideBarView.animateHideContentView()
+    navigateToAccountViewController(selectedIndex: 1)
+    NotificationCenter.default.post(name: .didSelectSideBarMenu, object: nil, userInfo: ["index": 1])
+  }
+  
+  func sideBarViewDidTapLogout(_ sideBarView: SideBarView) {
+    viewModel.didTapLogout()
+  }
+  
+}
